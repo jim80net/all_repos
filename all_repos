@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
+. ${ALLREPOS_MYDIR}/common.sh
+
+ALLREPOS_OUTPUTFILE=${ALLREPOS_CACHEPATH}/all_repos.txt
+
+[[ -f $ALLREPOS_OUTPUTFILE ]] && cat $ALLREPOS_OUTPUTFILE && exit 0
+
+gh repo list ${ALLREPOS_ORGNAME} --limit 600 --no-archived --source --json name | jq --raw-output .[].name | sort | tee $ALLREPOS_OUTPUTFILE

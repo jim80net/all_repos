@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
+ALLREPOS_EXECUTION_DIR=$(pwd)
+
+export ALLREPOS_ORGNAME=${ALLREPOS_EXECUTION_DIR##*/} # This is the name of the directory that this script is run from
+
+ALLREPOS_CACHEBUSTER=$(date +%Y%m%d%H)
+mkdir -p ${ALLREPOS_MYDIR}/.cache/$ALLREPOS_CACHEBUSTER/${ALLREPOS_ORGNAME}
+
+export ALLREPOS_CACHEPATH=${ALLREPOS_MYDIR}/.cache/$ALLREPOS_CACHEBUSTER/${ALLREPOS_ORGNAME}
