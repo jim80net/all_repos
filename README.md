@@ -40,4 +40,4 @@ all_non_main_branches | List all the repos in the organization that are not on t
 all_pull | Pull all the repos in the organization. Any repositories that have uncommitted changes will be skipped.
 all_repos | List all the repos in the organization.
 all_unclean | List all the repos in the organization that have uncommitted changes.
-repo_reset  <repo name> | Reset the repo to the main or master branch. Any uncommitted changes will be lost.
+repo_reset  [repo name] | Reset the repo to the main or master branch. Any uncommitted changes will be lost.
