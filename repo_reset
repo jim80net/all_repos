@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
+. ${ALLREPOS_MYDIR}/common.sh
+
+REPO=${1:?repo name required}
+
+cd ${REPO}
+MAIN_BRANCH=$(git branch -l master main | sed 's/^* //'| head -n 1)
+git checkout ${MAIN_BRANCH}
+git clean -dffx
+cd - >/dev/null
