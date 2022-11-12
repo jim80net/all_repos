@@ -3,7 +3,7 @@
 ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
 . ${ALLREPOS_MYDIR}/common.sh
 
-$ALLREPOS_MYDIR/all_repos | parallel --tag --progress --bar -- 'cd {}
+$ALLREPOS_MYDIR/all_repos | parallel --tag -- 'cd {}
 git fetch --all
 if [[ changes -gt 0 ]]; then
   print_changes

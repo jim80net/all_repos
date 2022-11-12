@@ -25,8 +25,12 @@ function change_count() {
 export -f change_count
 
 function print_changes() {
-  printf "\n\e[33;1mChanges in {}\n"
-  git status --porcelain
-  printf "\e[0m"
+  if [ $(change_count) -gt 0 ]; then
+    printf "\n\e[33;1mChanges in $(pwd):\n"
+    git status --porcelain
+    printf "\e[0m\n"
+  else
+    change_count
+  fi
 }
 export -f print_changes
