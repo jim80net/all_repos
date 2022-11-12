@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
+. ${ALLREPOS_MYDIR}/common.sh
+
+$ALLREPOS_MYDIR/all_repos | parallel --tag -- '
+cd {}
+print_branch
+'
