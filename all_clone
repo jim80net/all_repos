@@ -3,7 +3,7 @@
 ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
 . ${ALLREPOS_MYDIR}/common.sh
 
-$ALLREPOS_MYDIR/all_repos | parallel --tag --progress --bar -- '
+$ALLREPOS_MYDIR/all_repos | parallel --tag --progress --bar --jobs $ALLREPOS_CONCURRENCY -- '
 if [ -d {} ]; then
   echo "repository already exists"
 else

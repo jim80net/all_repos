@@ -2,8 +2,9 @@
 
 ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
 ALLREPOS_EXECUTION_DIR=$(pwd)
-
 export ALLREPOS_ORGNAME=${ALLREPOS_EXECUTION_DIR##*/} # This is the name of the directory that this script is run from
+
+export ALLREPOS_CONCURRENCY=${ALLREPOS_CONCURRENCY:-6} # Number of parallel jobs to run, adjust according to how GitHub's rate limiting affects you.
 
 ALLREPOS_CACHEBUSTER=$(date +%Y%m%d%H)
 mkdir -p ${ALLREPOS_MYDIR}/.cache/

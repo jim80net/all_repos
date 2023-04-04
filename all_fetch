@@ -3,4 +3,4 @@
 ALLREPOS_MYDIR=$(dirname ${BASH_SOURCE[0]})
 . ${ALLREPOS_MYDIR}/common.sh
 
-$ALLREPOS_MYDIR/all_repos | parallel --tag --progress --bar -- 'cd {} && git fetch --all'
+$ALLREPOS_MYDIR/all_repos | parallel --tag --progress --bar --jobs $ALLREPOS_CONCURRENCY -- 'cd {} && git fetch --all'
